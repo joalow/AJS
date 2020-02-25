@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="custom-dir">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="angularjs-master/custom-directives-2/autocomplete-jquery-ui.js"></script>
+        <script src="App.js"></script>
+        <title>Resource Objects</title>
+        <style>
+            .circular{
+                border-radius: 50%;
+                width:  100px;
+                height: 100px;
+                display: inline-block;
+            }
+            .no-list li{
+                list-style-type: none;
+            }
+            body,html{
+                text-align: center;
+                background-color:aliceblue;
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body ng-controller="AppCtrl">
+        <input type="text" my-autocomplete="repos" placeholder="Buscar repo">
+        <ul class="no-list">
+            <li ng-repeat="rep in posts" ng-hide="main_repo && main_repo != rep.name">
+                <h3 class="inline-block">{{rep.name}}</h3>
+                <div class="circular" back-img="{{rep.owner.avatar_url}}"></div>
+            </li>
+        </ul>
+    </body>
+
+</html>
